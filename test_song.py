@@ -22,5 +22,11 @@ def test_can_identify_hit_song(setup):
     song = setup
     song.increase_number_of_streams(2000000)
     assert(song.is_a_hit_song() == True)
+
+def test_can_register_cover(setup):
+    song = setup
+    artist_joana = Artist("joana", "americana", ["soul"])
+    song.register_cover(artist_joana, 2023)
+    assert(song.was_covered_by("joana") == True)
     
 
